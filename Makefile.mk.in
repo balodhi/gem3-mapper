@@ -149,7 +149,7 @@ ifeq ($(CC),gcc)
     FLAGS_OPT=-Ofast -march=native -mcpu=thunderx2t99 $(OPT_LTO)
   else ifeq ($(ARCH),x86_64)
     ifneq (,$(findstring avx512vl, $(CPU_FLAGS)))
-      FLAGS_OPT=-Ofast -march=skylake $(OPT_LTO)
+      FLAGS_OPT=-Ofast -march=native $(OPT_LTO)
     else ifneq (,$(findstring avx512f, $(CPU_FLAGS)))
       FLAGS_OPT=-march=knl -O3 -mavx512f -mavx512pf -mavx512er -mavx512cd -mfma -malign-data=cacheline -finline-functions $(OPT_LTO)
     else
